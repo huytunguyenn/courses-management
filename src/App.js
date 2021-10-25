@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import ClassList from "./Components/Class/ClassList";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <ClassList>
+
+      </ClassList>
     </div>
   );
 }
