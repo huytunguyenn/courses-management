@@ -14,7 +14,7 @@ const ClassList = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/classes")
+    fetch(process.env.REACT_APP_URI_CLASSES)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -28,35 +28,14 @@ const ClassList = () => {
       );
   }, []);
 
-  const cards = [
-    {
-      id: 1,
-      className: "PTUDWNC",
-    },
-    {
-      id: 2,
-      className: "PTUDW",
-    },
-    {
-      id: 3,
-      className: "KTPM",
-    },
-  ];
 
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
       <Grid container spacing={4}>
-        {cards.map((cls) => (
-          <Grid item key={cls.id} xs={12} sm={6} md={4}>
-            <Card
-              sx={{ height: "100%", display: "flex", flexDirection: "column" }}
-            >
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  pt: "56.25%",
-                }}
+        {items.map((cls) => (
+          <Grid item key={cls._id} xs={12} sm={6} md={4}>
+            <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+              <CardMedia component="img" sx={{pt: "56.25%",/*16:9*/}}
                 image="https://source.unsplash.com/random"
                 alt="random"
               />
