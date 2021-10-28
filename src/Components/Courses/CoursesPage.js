@@ -8,8 +8,7 @@ const CoursesPage = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
 
-
-    const fetchData = async () => {
+    useEffect(() => {
         fetch(process.env.REACT_APP_URI_CLASSES)
             .then((res) => res.json())
             .then(
@@ -22,11 +21,6 @@ const CoursesPage = () => {
                     setError(error);
                 }
             );
-    }
-
-
-    useEffect(() => {
-        fetchData()
     }, []);
 
     const handleOnSubmit = async (newCourse) => {
@@ -39,15 +33,16 @@ const CoursesPage = () => {
         const data = await response.json();
         console.log(data)
 
-        await fetchData()
-        //setItems([...items, newCourse]);
+        setItems([...items, newCourse]);
     }
 
     return (
         <div>
             <h2>Các Khóa học</h2>
             <FormDialog title='Thêm khóa học' handleOnSubmit={handleOnSubmit}/>
-            <ClassList items={items}/>
+            <ClassList
+                items={items}
+            />
         </div>
     );
 };
