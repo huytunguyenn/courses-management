@@ -5,15 +5,20 @@ import "@fontsource/roboto/500.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import configureStore from "./redux/configureStore";
+import { Provider as ReduxProvider } from 'react-redux'; // provide Redux store data to React component
 
+const store = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
+    <React.StrictMode>
+        <ReduxProvider store={store}>
+            <Router>
+                <App/>
+            </Router>
+        </ReduxProvider>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

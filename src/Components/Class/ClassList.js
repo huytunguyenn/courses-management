@@ -10,7 +10,6 @@ import Button from "@mui/material/Button";
 import { v4 as uuidv4 } from 'uuid';
 
 const ClassList = ({items}) => {
-
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
       <Grid container spacing={4}>
