@@ -1,8 +1,12 @@
-import * as types from './actionTypes'
+import { classTypes } from '../../constants'
 
-export function createCourse(course) {
+function createCourse(course) {
     return {
-        type: types.CREATE_COURSE,
+        type: classTypes.CREATE_COURSE,
         course: course
     };
+}
+
+export const courseActions = {
+    createCourse
 }

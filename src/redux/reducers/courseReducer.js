@@ -1,12 +1,10 @@
-import * as types from '../actions/actionTypes'
+import { classTypes } from "../../constants";
 
-// const initialState = {
-//     className: ''
-// }
+const initialState = []
 
-export default function courseReducer(state = [], action) {
+export default function courseReducer(state = initialState, action) {
     switch (action.type){
-        case types.CREATE_COURSE:
+        case classTypes.CREATE_COURSE:
             return [
                 ...state,
                 {...action.course}

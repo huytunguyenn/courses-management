@@ -2,12 +2,11 @@ import React, {useEffect, useState} from "react";
 import ClassList from "../Class/ClassList";
 import FormDialog from "./FormDialog";
 import { useSelector, useDispatch } from 'react-redux';
-import * as courseActions from '../../redux/actions/courseAction'
-
+import { courseActions } from '../../redux/actions/courseAction'
 
 const CoursesPage = (props) => {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+    // const [error, setError] = useState(null);
+    // const [isLoaded, setIsLoaded] = useState(false);
     //const [courses, setCourses] = useState([]);
     const courses = useSelector(state => state.courses)
     const dispatch = useDispatch()

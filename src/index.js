@@ -6,17 +6,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from "./redux/configureStore";
-import { Provider as ReduxProvider } from 'react-redux'; // provide Redux store data to React component
+import { Provider } from 'react-redux'; // provide Redux store data to React component
 
 const store = configureStore();
+console.log(store.getState())
+
 
 ReactDOM.render(
     <React.StrictMode>
-        <ReduxProvider store={store}>
+        <Provider store={store}>
             <Router>
                 <App/>
             </Router>
-        </ReduxProvider>
+        </Provider>
     </React.StrictMode>,
     document.getElementById("root")
 );
