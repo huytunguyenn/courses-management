@@ -9,7 +9,7 @@ import configureStore from "./redux/configureStore";
 import { Provider } from 'react-redux'; // provide Redux store data to React component
 
 const store = configureStore();
-console.log(store.getState())
+console.log('state in redux store: ',store.getState())
 
 
 ReactDOM.render(

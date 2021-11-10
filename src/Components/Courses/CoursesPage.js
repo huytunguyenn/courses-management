@@ -5,26 +5,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { courseActions } from '../../redux/actions/courseAction'
 
 const CoursesPage = (props) => {
-    // const [error, setError] = useState(null);
-    // const [isLoaded, setIsLoaded] = useState(false);
-    //const [courses, setCourses] = useState([]);
     const courses = useSelector(state => state.courses)
     const dispatch = useDispatch()
 
-    // useEffect(() => {
-    //     fetch(process.env.REACT_APP_URI_CLASSES)
-    //         .then((res) => res.json())
-    //         .then(
-    //             (result) => {
-    //                 setIsLoaded(true);
-    //                 setItems(result);
-    //             },
-    //             (error) => {
-    //                 setIsLoaded(true);
-    //                 setError(error);
-    //             }
-    //         );
-    // }, []);
+    useEffect(()=>{
+        dispatch(courseActions.loadCourses())
+    }, [])
+
 
     const handleOnSubmit = async (newCourse) => {
         // const requestOptions = {
@@ -36,7 +23,8 @@ const CoursesPage = (props) => {
         // const data = await response.json();
         // console.log(data)
         //setCourses([...courses, newCourse]);
-        dispatch(courseActions.createCourse(newCourse));   // trả ra object với newCourse kẹp thêm type, rồi dispatch
+
+        dispatch(courseActions.createCourse(newCourse)); // trả ra object {newCourse, type} rồi dispatch tới reducer
     }
 
     return (

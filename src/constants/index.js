@@ -1,3 +1,3 @@
-export * from './actionTypes'
+export * from './courseTypes'
 export * from './alertTypes'
 export * from './userTypes'
