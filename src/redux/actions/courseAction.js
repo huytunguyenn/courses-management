@@ -19,7 +19,7 @@ function loadCoursesSuccess(courses){
 
 // thunks
 function loadCourses(){
-    return function (dispatch){ // redux-thunk có sẵn dispatch
+    return (dispatch) => { // redux-thunk có sẵn dispatch
         return courseApi.getCourses().then(courses => {
             dispatch(loadCoursesSuccess(courses)); // tạo action creator riêng cho hợp lý (chỉ đc dispatch khi async api call thành công)
         }).catch(err => {

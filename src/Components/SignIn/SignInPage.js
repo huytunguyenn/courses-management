@@ -12,10 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { userActions } from '../../redux/actions/userAction'
-import {useState} from "react";
-import {useHistory} from "react-router-dom";
+import {useEffect} from "react";
+import {Redirect} from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -34,8 +34,14 @@ const theme = createTheme();
 
 
 export default function SignIn() {
-    const history = useHistory();
     const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
+
+    // reset login status
+    useEffect(() => {
+        dispatch(userActions.logout())
+    }, [dispatch])
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -44,18 +50,14 @@ export default function SignIn() {
             email: data.get('email'),
             password: data.get('password'),
         }
-        console.log('userInfo from form', userInfo);
+        console.log('userInfo from form: ', userInfo);
 
         dispatch(userActions.login(userInfo))
-
-        if (userInfo.email === 'a' && userInfo.password === 'a'){
-            history.push('/')
-        }
-
     };
 
     return (
         <ThemeProvider theme={theme}>
+            {user.loggedIn && <Redirect to="/"/>}
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box

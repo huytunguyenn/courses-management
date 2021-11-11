@@ -71,6 +71,12 @@ const courses = [
   }
 ];
 
+const user = {
+  username: '123',
+  password: '123'
+}
+
+
 const authors = [
   { id: 1, name: "Cory House" },
   { id: 2, name: "Scott Allen" },
@@ -88,5 +94,6 @@ const newCourse = {
 module.exports = {
   newCourse,
   courses,
-  authors
+  authors,
+  user
 };

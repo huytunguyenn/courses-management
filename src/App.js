@@ -11,7 +11,7 @@ function App() {
     <div className="App">
         <Switch>
             <Route path="/sign_in" component={SignInPage}/>
-            <PrivateRoute component={RouterURL} path="/"/>
+            <PrivateRoute path="/" component={RouterURL}/>
         </Switch>
     </div>
   );

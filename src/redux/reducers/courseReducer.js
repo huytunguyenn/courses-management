@@ -1,8 +1,7 @@
 import { courseTypes } from "../../constants";
+import initialState from './initialState'
 
-const initialState = []
-
-export default function courseReducer(state = initialState, action) {
+export default function courseReducer(state = initialState.courses, action) {
     switch (action.type){
         case courseTypes.CREATE_COURSE:
             return [

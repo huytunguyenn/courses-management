@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import ClassList from "../Class/ClassList";
+import React, {useEffect} from "react";
+import Courses from "./Courses";
 import FormDialog from "./FormDialog";
 import { useSelector, useDispatch } from 'react-redux';
 import { courseActions } from '../../redux/actions/courseAction'
@@ -10,7 +10,7 @@ const CoursesPage = (props) => {
 
     useEffect(()=>{
         dispatch(courseActions.loadCourses())
-    }, [])
+    }, [dispatch])
 
 
     const handleOnSubmit = async (newCourse) => {
@@ -31,7 +31,7 @@ const CoursesPage = (props) => {
         <div>
             <h2>Các Khóa học</h2>
             <FormDialog title='Thêm khóa học' handleOnSubmit={handleOnSubmit}/>
-            <ClassList
+            <Courses
                 items={courses}
             />
         </div>

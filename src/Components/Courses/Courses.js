@@ -9,7 +9,7 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import { v4 as uuidv4 } from 'uuid';
 
-const ClassList = ({items}) => {
+const Courses = ({items}) => {
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
       <Grid container spacing={4}>
@@ -40,4 +40,4 @@ const ClassList = ({items}) => {
   );
 };
 
-export default ClassList;
+export default Courses;
